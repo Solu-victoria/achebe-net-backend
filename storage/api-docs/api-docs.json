@@ -109,6 +109,43 @@
                     }
                 }
             }
+        },
+        "/api/disconnect-wallet": {
+            "post": {
+                "tags": [
+                    "Wallet"
+                ],
+                "summary": "Disconnect the user's wallet (logout)",
+                "description": "Logout the currently authenticated user and revoke the access token.",
+                "operationId": "disconnectWallet",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Wallet disconnected!"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
         }
     },
     "tags": [
