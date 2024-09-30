@@ -39,7 +39,7 @@ class AuthController extends Controller
     public function getUser(Request $request) { 
         //actual code found in api routes file, this is for swagger to generate doc for this route
     }
-    
+
     /**
 *@OA\Post(
     *     path="/api/connect-wallet",
@@ -97,4 +97,33 @@ class AuthController extends Controller
             'message' => 'Wallet connected successfully!'
         ]);
     }
+
+        /**
+ * @OA\Post(
+ *     path="/api/disconnect-wallet",
+ *     summary="Disconnect the user's wallet (logout)",
+ *     description="Logout the currently authenticated user and revoke the access token.",
+ *     operationId="logout",
+ *     tags={"Wallet"},
+ *     security={
+ *         {"sanctum": {}}
+ *     },
+ *     @OA\Response(
+ *         response=200,
+ *         description="Success",
+ *         @OA\JsonContent(
+ *             type="object",
+ *             @OA\Property(property="status", type="boolean", example=true),
+ *             @OA\Property(property="message", type="string", example="Logged out!"),
+ *         ),
+ *     ),
+ * )
+ */
+public function disconnectWallet()
+{
+    $user = request()->user();
+    $user->tokens()->where('id', $user->currentAccessToken()->id)->delete();
+
+    return $this->success(null, 'Wallet disconnected!');
+}
 }

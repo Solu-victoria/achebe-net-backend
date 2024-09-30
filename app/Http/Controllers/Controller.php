@@ -18,7 +18,7 @@ namespace App\Http\Controllers;
      *
      * @OA\Server(
      *      url="https://achebe-net-backend.onrender.com/",
-     *      description="Achebe net API Server"
+     *      description="Achebe-net API Server"
      * )
 
      *
