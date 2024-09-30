@@ -146,6 +146,41 @@
                     }
                 ]
             }
+        },
+        "/api/user/track-progress": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Track user progress",
+                "description": "Route to notify that a question has been asked and receive response of current stage and if the user has entered a new stage",
+                "operationId": "trackUserProgress",
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "example": {
+                                                "user_property": "user_value"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
         }
     },
     "components": {
