@@ -103,7 +103,7 @@ class AuthController extends Controller
  *     path="/api/disconnect-wallet",
  *     summary="Disconnect the user's wallet (logout)",
  *     description="Logout the currently authenticated user and revoke the access token.",
- *     operationId="logout",
+ *     operationId="disconnectWallet",
  *     tags={"Wallet"},
  *     security={
  *         {"sanctum": {}}
@@ -114,7 +114,7 @@ class AuthController extends Controller
  *         @OA\JsonContent(
  *             type="object",
  *             @OA\Property(property="status", type="boolean", example=true),
- *             @OA\Property(property="message", type="string", example="Logged out!"),
+ *             @OA\Property(property="message", type="string", example="Wallet disconnected!"),
  *         ),
  *     ),
  * )
