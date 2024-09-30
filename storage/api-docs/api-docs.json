@@ -150,7 +150,7 @@
     },
     "components": {
         "securitySchemes": {
-            "Sanctum": {
+            "sanctum": {
                 "type": "http",
                 "description": "Enter your bearer token in the format **Bearer &lt;token&gt;**",
                 "bearerFormat": "JWT",
